@@ -1,47 +1,60 @@
-/backend
-    /api
-        - **Express**アプリケーション
-        - **Helmet**を使用したHTTPヘッダーのセキュリティ強化
-        - **Apollo Server?**
-        - CORS設定
-        - レートリミット設定
-        - JWTによる認証機能
-        - パスワードのハッシュ化 (bcrypt)
-    /strapi(CMS)
-        - Strapiプロジェクト
-        - ロールベースのアクセスコントロール
-        - 安全なAPIエンドポイントの提供
-    /security
-        - **OWASP Dependency Check**の設定ファイル
-    /models
-        - データモデル (セキュリティを考慮した設計)
-    /services
-        - ビジネスロジックとセキュリティサービス
-    /middlewares
-        - セキュリティ強化ミドルウェア
+# Express API
 
+Express + TypeScriptによるAPIサーバーの試作です。
 
-必要なパッケージ
+## 主要バージョン
 
-    Express関連パッケージ
-        express: Expressフレームワーク本体
-        cors: クロスオリジンリソース共有(CORS)設定用のミドルウェア
-        helmet: HTTPヘッダーのセキュリティ強化用のミドルウェア
-        express-rate-limit: リクエストのレートリミットを設定するミドルウェア
-        body-parser: リクエストボディの解析用ミドルウェア
+- Express 5.1.0
+- TypeScript 5.9系
+- Node.js 20以上を推奨
 
-    認証・セキュリティ関連パッケージ
-        jsonwebtoken: JWT認証に使用
-        bcrypt: パスワードハッシュ用
-        passport: 認証用ミドルウェア
-        passport-jwt: JWTを使用したPassport戦略
-        passport-local: ローカル認証戦略
+## セットアップ
 
-    Strapi
-        Strapiのインストールには特定のNPMパッケージをインストールするのではなく、CLIを使用してプロジェクトを作成します。
-        npx create-strapi-app my-project --quickstart (新規プロジェクト作成時)
-        Strapiのプラグインや依存関係はプロジェクト作成後にpackage.jsonを通して管理されます。
+```bash
+npm ci
+```
 
-    その他ユーティリティ
-        dotenv: 環境変数を管理
-        nodemon: 開発中の自動再起動ツール
+## コマンド
+
+```bash
+# 開発サーバー（ts-node + nodemon）
+npm run dev
+
+# TypeScriptをdistへビルド
+npm run build
+
+# ビルド済みアプリを起動
+npm start
+```
+
+## 使用している機能
+
+- MongoDB接続（Mongoose）
+- JWT認証（Passport／passport-jwt）
+- bcryptによるパスワードハッシュ化
+- CORS
+- HelmetによるHTTPヘッダー設定
+- express-rate-limitによるレート制限
+- dotenvによる環境変数管理
+
+## ディレクトリ
+
+```text
+express/
+├── src/         # TypeScriptソース
+├── models/      # データモデル
+├── tsconfig.json
+├── package.json
+└── package-lock.json
+```
+
+環境変数は`.env`で管理し、認証情報や秘密値をリポジトリへ追加しないでください。
+
+## 検証
+
+```bash
+npm ci
+npm run build
+```
+
+自動テストはまだ実装されていません。`npm test`は未実装テストの終了コード1を返します。
