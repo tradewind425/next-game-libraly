@@ -32,7 +32,7 @@ export class GameScene_0 extends Phaser.Scene {
     }
 
     private setupGameArea(): void {
-        this.input.keyboard.on('keydown-ESC', () => {
+        this.input.keyboard!.on('keydown-ESC', () => {
             this.scene.pause();
             this.scene.launch('PauseScene', { previousSceneKey: this.scene.key });
         });

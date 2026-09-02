@@ -25,11 +25,11 @@ export class PaddleController {
     }
 
     private setupKeys(): void {
-        this.cursorKeys = this.scene.input.keyboard.createCursorKeys();
-        this.moveLeftKey = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A); // Aキー
-        this.moveRightKey = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D); // Dキー
-        this.jumpKey = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-        this.rotateKey = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.X);
+        this.cursorKeys = this.scene.input.keyboard!.createCursorKeys();
+        this.moveLeftKey = this.scene.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.A); // Aキー
+        this.moveRightKey = this.scene.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.D); // Dキー
+        this.jumpKey = this.scene.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        this.rotateKey = this.scene.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.X);
     }
 
     public update(paddle: Phaser.Physics.Matter.Sprite): void {

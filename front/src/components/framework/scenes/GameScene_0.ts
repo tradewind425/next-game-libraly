@@ -19,7 +19,7 @@ export class GameScene_0 extends Phaser.Scene {
         // 代わりに、必要に応じて Arcade Physics の設定をここに追加
 
         // ESCキーを押すとポーズ画面を表示
-        this.input.keyboard.on('keydown-ESC', () => {
+        this.input.keyboard!.on('keydown-ESC', () => {
             this.scene.pause();
             this.scene.launch('PauseScene', { previousSceneKey: this.scene.key });
         });

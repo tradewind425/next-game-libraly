@@ -17,17 +17,17 @@ type PhysicsEngineType = 0 | 1;
 export const physicsEngineType: PhysicsEngineType = 1;
 
 // 物理エンジンの設定を動的に決定する関数
-const getPhysicsConfig = (engineType: PhysicsEngineType) => {
+const getPhysicsConfig = (engineType: PhysicsEngineType): Phaser.Types.Core.PhysicsConfig => {
   return engineType === 0 ? {
     default: 'arcade',
     arcade: {
-      gravity: { y: 0 },
+      gravity: { x: 0, y: 0 },
       debug: process.env.NODE_ENV !== 'production',
     },
   } : {
     default: 'matter',
     matter: {
-      gravity: { y: 0 },
+      gravity: { x: 0, y: 0 },
       debug: process.env.NODE_ENV !== 'production',
     },
   };

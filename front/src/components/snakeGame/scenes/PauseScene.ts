@@ -16,7 +16,7 @@ export class PauseScene extends Phaser.Scene {
         this.previousSceneKey = data.previousSceneKey;
 
         // ゲームを再開するためのイベントリスナーを追加
-        this.input.keyboard.on('keydown-ESC', () => {
+        this.input.keyboard!.on('keydown-ESC', () => {
             this.scene.stop();
             // 動的に前のシーンを再開
             if (this.previousSceneKey) {

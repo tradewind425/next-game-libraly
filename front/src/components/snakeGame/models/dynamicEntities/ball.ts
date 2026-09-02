@@ -23,7 +23,7 @@ abstract class AbstractBall {
                 this.sprite.setVelocity(currentVelocity.x * scale, currentVelocity.y * scale);
             }
         } else if (this.sprite instanceof Phaser.Physics.Arcade.Sprite) {
-            const currentVelocity = this.sprite.body.velocity;
+            const currentVelocity = this.sprite.body!.velocity;
             const currentSpeed = Math.sqrt(currentVelocity.x ** 2 + currentVelocity.y ** 2);
             const targetSpeed = Math.sqrt(this.constantVelocity.x ** 2 + this.constantVelocity.y ** 2);
             

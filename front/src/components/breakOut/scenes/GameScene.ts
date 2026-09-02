@@ -25,7 +25,7 @@ export class GameScene extends Phaser.Scene {
         this.collisionManager = new CollisionManager(this);
     
         // ESCキーを押すとポーズ画面を表示
-        this.input.keyboard.on('keydown-ESC', () => {
+        this.input.keyboard!.on('keydown-ESC', () => {
             this.scene.pause();
             this.scene.launch('PauseScene');
         });

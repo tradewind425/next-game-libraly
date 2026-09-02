@@ -33,7 +33,7 @@ export class Ball {
 
     public update(): void {
         
-        const velocity = this.sprite.body.velocity; // 現在の速度を取得    
+        const velocity = this.sprite.body!.velocity; // 現在の速度を取得    
         const currentSpeed = Math.sqrt(velocity.x ** 2 + velocity.y ** 2);  // 現在の速度の大きさを計算
         const targetSpeed = Math.sqrt(this.constantVelocity.x ** 2 + this.constantVelocity.y ** 2); // 目的の速度の大きさを計算
         // 現在の速度が0でない場合、速度を一定に保つ

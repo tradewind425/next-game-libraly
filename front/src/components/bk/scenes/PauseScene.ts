@@ -12,7 +12,7 @@ export class PauseScene extends Phaser.Scene {
             .setOrigin(0.5);
 
         // ゲームを再開するためのイベントリスナーを追加
-        this.input.keyboard.on('keydown-ESC', () => {
+        this.input.keyboard!.on('keydown-ESC', () => {
             this.scene.stop();
             this.scene.resume('GameScene');
         });

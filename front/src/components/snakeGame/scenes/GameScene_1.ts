@@ -16,7 +16,7 @@ export class GameScene_1 extends Phaser.Scene {
         this.matter.world.setBounds();
     
         // ESCキーを押すとポーズ画面を表示
-        this.input.keyboard.on('keydown-ESC', () => {
+        this.input.keyboard!.on('keydown-ESC', () => {
             this.scene.pause();
             this.scene.launch('PauseScene', { previousSceneKey: this.scene.key });
         });
